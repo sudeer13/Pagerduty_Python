@@ -1,0 +1,111 @@
+{
+    "default_ruleset": true,
+    "external_id": "R014VN2DHXZ3R8JVSAIBV80Q51IX4VOA",
+    "format_version": "3",
+    "id": "b4c480b4-0bee-3567-865f-815569441983",
+    "object_version": "m4n86_tmS9Ze4ljxi1MCkecn0H5Dlovl",
+    "rules": [
+        {
+            "actions": [
+                [
+                    "extract",
+                    "(.*)\",",
+                    [
+                        "path",
+                        "payload",
+                        "summary"
+                    ],
+                    "description"
+                ],
+                [
+                    "route",
+                    "PAZBSIB"
+                ],
+                [
+                    "severity",
+                    "warning"
+                ],
+                [
+                    "priority",
+                    "PP2VXTH"
+                ]
+            ],
+            "advanced_condition": [
+                [
+                    "frequency-over",
+                    3,
+                    15,
+                    "minutes"
+                ]
+            ],
+            "catch_all": false,
+            "condition": [
+                "or",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "summary"
+                    ],
+                    "interface fc"
+                ],
+                [
+                    "equals",
+                    [
+                        "path",
+                        "payload",
+                        "source"
+                    ],
+                    "solarwinds"
+                ]
+            ],
+            "disabled": false,
+            "id": "e4d90ebe-a9b2-4b0c-a2f1-aa1f36c40ae3"
+        },
+        {
+            "actions": [
+                [
+                    "annotate",
+                    "This is a test 1"
+                ]
+            ],
+            "advanced_condition": null,
+            "catch_all": false,
+            "condition": [
+                "and",
+                [
+                    "matches",
+                    [
+                        "path",
+                        "service"
+                    ],
+                    "^foo-1"
+                ],
+                [
+                    "equals",
+                    [
+                        "path",
+                        "client"
+                    ],
+                    "bar"
+                ]
+            ],
+            "disabled": false,
+            "id": "48d77ef3-b0e2-45ac-b035-4b7c93eeec07"
+        },
+        {
+            "actions": [
+                [
+                    "suppress",
+                    true
+                ]
+            ],
+            "advanced_condition": null,
+            "catch_all": true,
+            "condition": null,
+            "disabled": false,
+            "id": "5bedb895-7fb0-4373-844b-e0dc47d4daf9"
+        }
+    ]
+}
